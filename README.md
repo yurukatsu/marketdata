@@ -76,6 +76,9 @@ src/marketdata/
   fonts/             Noto Sans JP（SIL OFL）
 ```
 
+`notebooks/weekly_report_sample.ipynb` はライブラリの使い方のサンプル（実行結果は保存しない）。
+実行して試すときは出力を消してからコミットする。
+
 ちょっとした分析でライブラリとして使う場合:
 
 ```python
