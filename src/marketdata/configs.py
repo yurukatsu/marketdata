@@ -9,6 +9,13 @@ from .paths import CONFIG_DIR
 class Instrument(BaseModel):
     ticker: str = Field(..., description="RIC")
     alias: str | None = Field(None, description="表示名")
+    field: str | None = Field(None, description="取得フィールド（省略時は呼び出し側の既定値）")
+    unit: str | None = Field(None, description="単位（表示用）")
+    tenor: str | None = Field(None, description="年限（代用年限を注記するときなど）")
+
+    @property
+    def name(self) -> str:
+        return self.alias or self.ticker
 
 
 # universe.yaml はトップレベルのキーがグループ名（countries, sectors, ...）

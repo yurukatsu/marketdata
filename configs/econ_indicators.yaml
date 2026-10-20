@@ -1,0 +1,131 @@
+# 週次レポートの経済指標カレンダー対象（ロイター調査つきの =ECI RIC）
+# トップレベルのキー = 国名（表示名）。alias = 指標の表示名、unit = 値の単位（表示用）
+# 候補の探し方: Search API の INDICATOR_QUOTES ビューで "<国名> Reuters Polls" を検索する
+
+米国:
+  - {ticker: "USCPNY=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "USCPFY=ECI", alias: "コアCPI（前年比）", unit: "%"}
+  - {ticker: "USNFAR=ECI", alias: "非農業部門雇用者数（前月差）", unit: "千人"}
+  - {ticker: "USPMI=ECI", alias: "ISM製造業景況指数", unit: "pt"}
+  - {ticker: "USNPMI=ECI", alias: "ISM非製造業景況指数", unit: "pt"}
+  - {ticker: "USGDPA=ECI", alias: "実質GDP速報値（前期比年率）", unit: "%"}
+  - {ticker: "USIPY=ECI", alias: "鉱工業生産（前年比）", unit: "%"}
+
+韓国:
+  - {ticker: "KRCPIY=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "KRGDPA=ECI", alias: "GDP速報値（前年比）", unit: "%"}
+  - {ticker: "KROCRT=ECI", alias: "政策金利", unit: "%"}
+  - {ticker: "KRPMI=ECI", alias: "製造業PMI", unit: "pt"}
+  - {ticker: "KREXP=ECI", alias: "輸出（速報・前年比）", unit: "%"}
+  - {ticker: "KRUNR=ECI", alias: "失業率", unit: "%"}
+
+中国:
+  - {ticker: "CNCPI=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "CNGDP=ECI", alias: "GDP（前年比）", unit: "%"}
+  - {ticker: "CNPMIB=ECI", alias: "製造業PMI（国家統計局）", unit: "pt"}
+  - {ticker: "CNPMIC=ECI", alias: "製造業PMI（RatingDog）", unit: "pt"}
+  - {ticker: "CNLPRO=ECI", alias: "ローンプライムレート（1年）", unit: "%"}
+  - {ticker: "CNRSL=ECI", alias: "小売売上高（前年比）", unit: "%"}
+  - {ticker: "CNTRD=ECI", alias: "貿易収支"}
+
+香港:
+  - {ticker: "HKCPIY=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "HKGDYA=ECI", alias: "GDP速報値（前年比）", unit: "%"}
+  - {ticker: "HKRSL=ECI", alias: "小売売上高（金額・前年比）", unit: "%"}
+  - {ticker: "HKUNR=ECI", alias: "失業率", unit: "%"}
+
+台湾:
+  - {ticker: "TWCPIY=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "TWGDPP=ECI", alias: "GDP速報値（前年比）", unit: "%"}
+  - {ticker: "TWINTR=ECI", alias: "政策金利（公定歩合）", unit: "%"}
+  - {ticker: "TWPMI=ECI", alias: "製造業PMI", unit: "pt"}
+  - {ticker: "TWTBAL=ECI", alias: "貿易収支"}
+
+フィリピン:
+  - {ticker: "PHCPI=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "PHGDP=ECI", alias: "GDP（前年比）", unit: "%"}
+  - {ticker: "PHCBIR=ECI", alias: "政策金利", unit: "%"}
+  - {ticker: "PHPMI=ECI", alias: "製造業PMI", unit: "pt"}
+  - {ticker: "PHTBAL=ECI", alias: "貿易収支"}
+
+タイ:
+  - {ticker: "THCPI=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "THGDPY=ECI", alias: "GDP（前年比）", unit: "%"}
+  - {ticker: "THCBIR=ECI", alias: "政策金利", unit: "%"}
+  - {ticker: "THPMI=ECI", alias: "製造業PMI", unit: "pt"}
+  - {ticker: "THCEX=ECI", alias: "輸出（通関・前年比）", unit: "%"}
+
+インドネシア:
+  - {ticker: "IDCPI=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "IDGDP=ECI", alias: "GDP（前年比）", unit: "%"}
+  - {ticker: "IDCBRR=ECI", alias: "政策金利（7日物リバースレポ）", unit: "%"}
+  - {ticker: "IDPMIM=ECI", alias: "製造業PMI", unit: "pt"}
+  - {ticker: "IDTRD=ECI", alias: "貿易収支"}
+
+マレーシア:
+  - {ticker: "MYCPI=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "MYGDP=ECI", alias: "GDP（前年比）", unit: "%"}
+  - {ticker: "MYINTR=ECI", alias: "政策金利（OPR）", unit: "%"}
+  - {ticker: "MYPMIM=ECI", alias: "製造業PMI", unit: "pt"}
+  - {ticker: "MYEXP=ECI", alias: "輸出（前年比）", unit: "%"}
+
+インド:
+  - {ticker: "INCPIY=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "INGDPY=ECI", alias: "GDP（前年比）", unit: "%"}
+  - {ticker: "INREPO=ECI", alias: "政策金利（レポ）", unit: "%"}
+  - {ticker: "INPMI=ECI", alias: "製造業PMI", unit: "pt"}
+  - {ticker: "INPMIF=ECI", alias: "製造業PMI（速報）", unit: "pt"}
+
+トルコ:
+  - {ticker: "TRCPIY=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "TRINT=ECI", alias: "政策金利（1週間レポ）", unit: "%"}
+  - {ticker: "TRPMIM=ECI", alias: "製造業PMI", unit: "pt"}
+  - {ticker: "TRUR=ECI", alias: "失業率", unit: "%"}
+  - {ticker: "TRTRD=ECI", alias: "貿易収支"}
+
+UAE:
+  - {ticker: "AECPIY=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "AEGDP=ECI", alias: "GDP（前年比）", unit: "%"}
+  - {ticker: "AEINTR=ECI", alias: "政策金利", unit: "%"}
+  - {ticker: "AEPMIP=ECI", alias: "PMI（総合）", unit: "pt"}
+
+サウジアラビア:
+  - {ticker: "SACPIY=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "SAGDPF=ECI", alias: "実質GDP速報値（前年比）", unit: "%"}
+  - {ticker: "SAINTR=ECI", alias: "政策金利", unit: "%"}
+  - {ticker: "SAPMIP=ECI", alias: "PMI（総合）", unit: "pt"}
+
+南アフリカ:
+  - {ticker: "ZACPIY=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "ZAGDPY=ECI", alias: "GDP（前年比）", unit: "%"}
+  - {ticker: "ZAREPO=ECI", alias: "政策金利（レポ）", unit: "%"}
+  - {ticker: "ZAPMIM=ECI", alias: "製造業PMI", unit: "pt"}
+  - {ticker: "ZARET=ECI", alias: "小売売上高（前年比）", unit: "%"}
+  - {ticker: "ZAUNR=ECI", alias: "失業率", unit: "%"}
+  - {ticker: "ZATBAL=ECI", alias: "貿易収支"}
+
+メキシコ:
+  - {ticker: "MXCPIA=ECI", alias: "CPI（前年比）", unit: "%"}
+  - {ticker: "MXCPHI=ECI", alias: "CPI（前半月・前年比）", unit: "%"}
+  - {ticker: "MXGDYP=ECI", alias: "GDP速報値（前年比）", unit: "%"}
+  - {ticker: "MXCBIR=ECI", alias: "政策金利", unit: "%"}
+  - {ticker: "MXRSLY=ECI", alias: "小売売上高（前年比）", unit: "%"}
+  - {ticker: "MXUNR=ECI", alias: "失業率", unit: "%"}
+  - {ticker: "MXTBAL=ECI", alias: "貿易収支"}
+
+ブラジル:
+  - {ticker: "BRCPIY=ECI", alias: "CPI（IPCA・前年比）", unit: "%"}
+  - {ticker: "BRIPCY=ECI", alias: "CPI（IPCA-15・前年比）", unit: "%"}
+  - {ticker: "BRGDPY=ECI", alias: "GDP（前年比）", unit: "%"}
+  - {ticker: "BRCBMP=ECI", alias: "政策金利（SELIC）", unit: "%"}
+  - {ticker: "BRPMIM=ECI", alias: "製造業PMI", unit: "pt"}
+  - {ticker: "BRRSLY=ECI", alias: "小売売上高（前年比）", unit: "%"}
+  - {ticker: "BRTBAL=ECI", alias: "貿易収支"}
+
+ポーランド:
+  - {ticker: "PLCFY=ECI", alias: "CPI速報値（前年比）", unit: "%"}
+  - {ticker: "PLCPIY=ECI", alias: "CPI確報値（前年比）", unit: "%"}
+  - {ticker: "PLGDP=ECI", alias: "GDP速報値（前年比）", unit: "%"}
+  - {ticker: "PLINTR=ECI", alias: "政策金利", unit: "%"}
+  - {ticker: "PLPMI=ECI", alias: "製造業PMI", unit: "pt"}
+  - {ticker: "PLUNM=ECI", alias: "失業率", unit: "%"}

@@ -1,0 +1,39 @@
+# 週次レポート（marketdata weekly-report）の設定
+# 基準日は CLI の --date で指定する（省略時は今日）。期間はすべて基準日からの相対で決まる
+
+# 基準日（--date, 通常は水曜の実行日）の扱い
+#   カレンダー（決算・経済指標）: 基準日以降
+#   価格（リターン・利回り・コモディティ・ツリーマップ）: データ基準日 = 基準日の data_lag_days 日前（前日）
+#     リターン期間 / 利回りの比較日 = データ基準日の lookback_days 日前 → データ基準日
+#     （各日とも当日または直前営業日の値を使う）
+data_lag_days: 1
+lookback_days: 7
+
+# 取得フィールド
+country_field: "TR.PriceClose"            # 各国インデックス。USD 建ては "TR.PriceClose(Curn=USD)"
+sector_field: "TR.PriceClose(Curn=USD)"   # MSCI EM セクター
+stock_field: "TR.PriceClose(Curn=USD)"    # BM 構成銘柄（ツリーマップ）。現地通貨建ては "TR.PriceClose"
+yield_field: "MID_YLD_1"                  # 国債利回り（仲値, %）
+
+# 表示名
+bm_name: "BM"            # 図のタイトルに使うベンチマーク名
+benchmark: "MSCI EM"     # universe.yaml の sectors で強調表示するベンチマークの alias
+
+# 決算
+earnings_days: 7         # 基準日 <= 発表日 < 基準日 + earnings_days
+season_end: null         # 件数チャートの終了日（YYYY-MM-DD）。null なら決算シーズンの終わりを自動判定
+min_weight: 0.0          # 決算テーブルのフィルター（例: 0.001 = 0.10%）
+min_cap: 0               # 決算テーブルのフィルター（bm.csv の cap と同じ単位。例: 5.0e9）
+top_n: 3                 # 日付ごとの weight 上位銘柄数
+
+# コモディティ（WTI / 金）の表示期間
+commodity_months: 3
+
+# 経済指標カレンダー（対象は configs/econ_indicators.yaml）
+econ_days: 7             # 基準日 <= 発表日 < 基準日 + econ_days
+
+# ツリーマップ
+treemap_clip: 0.05       # 色が飽和するリターン（±5%）
+
+# 表
+table_rows_per_page: 18  # 表 PNG 1枚あたりの行数（日付見出しを含む）

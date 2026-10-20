@@ -83,3 +83,70 @@ sectors:
 
   - ticker: ".MIEF0RS00NUS"
     alias: "不動産"
+
+# 米国債（ジェネリック）。alias は年限ラベル（"6M" / "10Y" 形式。横軸の年数に換算する）
+us_treasury:
+  - ticker: "US1YT=RR"
+    alias: "1Y"
+  - ticker: "US2YT=RR"
+    alias: "2Y"
+  - ticker: "US3YT=RR"
+    alias: "3Y"
+  - ticker: "US5YT=RR"
+    alias: "5Y"
+  - ticker: "US7YT=RR"
+    alias: "7Y"
+  - ticker: "US10YT=RR"
+    alias: "10Y"
+  - ticker: "US20YT=RR"
+    alias: "20Y"
+  - ticker: "US30YT=RR"
+    alias: "30Y"
+
+# コモディティ。RIC ごとに使えるフィールドが違うので field を指定する
+commodities:
+  - ticker: "CLc1"
+    alias: "WTI原油"
+    field: "SETTLE"  # NYMEX 先物期近の決済値（USD/bbl）
+    unit: "USD/bbl"
+
+  - ticker: "XAU="
+    alias: "金"
+    field: "MID_PRICE"  # スポット仲値（USD/oz）
+    unit: "USD/oz"
+
+# 各国国債（ジェネリック）。alias は国名で、govt_short と govt_10y を alias で突き合わせる
+# 2年債がない国は tenor に代用年限を書く（表に注記される）。
+# 南アフリカは 1〜4年がないので短期側なし。UAE・サウジはジェネリックの現地通貨建て国債がないため対象外
+govt_short:
+  - {ticker: "US2YT=RR", alias: "米国", tenor: "2Y"}
+  - {ticker: "KR2YT=RR", alias: "韓国", tenor: "2Y"}
+  - {ticker: "CN2YT=RR", alias: "中国", tenor: "2Y"}
+  - {ticker: "HK2YT=RR", alias: "香港", tenor: "2Y"}
+  - {ticker: "TW2YT=RR", alias: "台湾", tenor: "2Y"}
+  - {ticker: "PH2YT=RR", alias: "フィリピン", tenor: "2Y"}
+  - {ticker: "TH2YT=RR", alias: "タイ", tenor: "2Y"}
+  - {ticker: "ID3YT=RR", alias: "インドネシア", tenor: "3Y"}
+  - {ticker: "MY3YT=RR", alias: "マレーシア", tenor: "3Y"}
+  - {ticker: "IN2YT=RR", alias: "インド", tenor: "2Y"}
+  - {ticker: "TR2YT=RR", alias: "トルコ", tenor: "2Y"}
+  - {ticker: "MX3YT=RR", alias: "メキシコ", tenor: "3Y"}
+  - {ticker: "BR2YT=RR", alias: "ブラジル", tenor: "2Y"}
+  - {ticker: "PL2YT=RR", alias: "ポーランド", tenor: "2Y"}
+
+govt_10y:
+  - {ticker: "US10YT=RR", alias: "米国"}
+  - {ticker: "KR10YT=RR", alias: "韓国"}
+  - {ticker: "CN10YT=RR", alias: "中国"}
+  - {ticker: "HK10YT=RR", alias: "香港"}
+  - {ticker: "TW10YT=RR", alias: "台湾"}
+  - {ticker: "PH10YT=RR", alias: "フィリピン"}
+  - {ticker: "TH10YT=RR", alias: "タイ"}
+  - {ticker: "ID10YT=RR", alias: "インドネシア"}
+  - {ticker: "MY10YT=RR", alias: "マレーシア"}
+  - {ticker: "IN10YT=RR", alias: "インド"}
+  - {ticker: "TR10YT=RR", alias: "トルコ"}
+  - {ticker: "ZA10YT=RR", alias: "南アフリカ"}
+  - {ticker: "MX10YT=RR", alias: "メキシコ"}
+  - {ticker: "BR10YT=RR", alias: "ブラジル"}
+  - {ticker: "PL10YT=RR", alias: "ポーランド"}

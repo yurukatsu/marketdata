@@ -4,6 +4,7 @@ import lseg.data as ld
 import pandas as pd
 from dotenv import load_dotenv
 
+from .configs import Instrument
 from .paths import PROJECT_ROOT
 
 pd.set_option("future.no_silent_downcasting", True)
@@ -65,6 +66,61 @@ class LSEGClient:
             end=end,
             interval=interval,
         )
+
+    def get_history_chunked(
+        self,
+        universe: list[str],
+        field: str,
+        start: str,
+        end: str,
+        chunk_size: int = 50,
+    ) -> pd.DataFrame:
+        """多数の RIC を chunk_size ずつに分けて取得する（列=RIC）。"""
+        frames = []
+        for i in range(0, len(universe), chunk_size):
+            chunk = universe[i : i + chunk_size]
+            df = self.get_history(universe=chunk, fields=[field], start=start, end=end)
+            if len(chunk) == 1:
+                df.columns = chunk
+            frames.append(df)
+        out = pd.concat(frames, axis=1)
+        out.index = pd.to_datetime(out.index)
+        out.columns.name = None
+        return out.sort_index().astype(float)
+
+    def get_instrument_history(
+        self,
+        instruments: list[Instrument],
+        start: str,
+        end: str,
+        default_field: str = "TR.PriceClose",
+        interval: str = "1D",
+    ) -> pd.DataFrame:
+        """universe.yaml のグループの時系列を取得する。列=alias（yaml の並び順）。
+
+        銘柄ごとに field が指定されていればそれを使い、同じフィールドの銘柄はまとめて取得する。
+        """
+        by_field: dict[str, list[Instrument]] = {}
+        for i in instruments:
+            by_field.setdefault(i.field or default_field, []).append(i)
+
+        frames = []
+        for field, group in by_field.items():
+            df = self.get_history(
+                universe=[i.ticker for i in group],
+                fields=[field],
+                start=start,
+                end=end,
+                interval=interval,
+            )
+            # 1銘柄だと列名がフィールド名になるので、ticker で付け直す
+            if len(group) == 1:
+                df.columns = [group[0].ticker]
+            frames.append(df.rename(columns={i.ticker: i.name for i in group}))
+
+        out = pd.concat(frames, axis=1)
+        out.index = pd.to_datetime(out.index)
+        return out.sort_index()[[i.name for i in instruments]]
 
     def get_data(
         self,

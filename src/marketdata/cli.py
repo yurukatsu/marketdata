@@ -2,6 +2,7 @@ from datetime import date, timedelta
 from pathlib import Path
 from typing import Annotated
 
+import pandas as pd
 import typer
 
 from .client import LSEGClient
@@ -58,6 +59,37 @@ def history(
     output_path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(output_path)
     typer.echo(f"Saved: {output_path} ({len(df)} rows)")
+
+
+@app.command("weekly-report")
+def weekly_report(
+    base_date: Annotated[
+        str, typer.Option("--date", "-d", help="基準日 (YYYY-MM-DD)。省略時は今日")
+    ] = "",
+    config_path: Annotated[
+        Path,
+        typer.Option("--config", "-c", help="レポート設定ファイル", exists=True, dir_okay=False),
+    ] = CONFIG_DIR / "weekly_report.yaml",
+    output_dir: Annotated[
+        Path | None,
+        typer.Option("--output", "-o", help="出力先ディレクトリ。省略時は outputs/weekly/<基準日>"),
+    ] = None,
+) -> None:
+    """週次レポートの図表（PNG）と CSV を出力します。"""
+    import matplotlib
+
+    matplotlib.use("Agg")  # 画面のない環境（EC2 など）でも描画できるように
+
+    from .reports.weekly import WeeklyReport, WeeklyReportConfig
+
+    report = WeeklyReport(
+        base_date=pd.Timestamp(base_date or date.today()),
+        config=WeeklyReportConfig.load(config_path),
+        output_dir=output_dir,
+        log=lambda msg: typer.echo(f"- {msg}"),
+    )
+    outputs = report.run()
+    typer.echo(f"Saved {len(outputs)} files to {report.output_dir}")
 
 
 if __name__ == "__main__":
