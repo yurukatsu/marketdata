@@ -1,0 +1,45 @@
+[project]
+name = "marketdata"
+version = "0.1.0"
+description = "LSEG Data Library からマーケットデータを取得し、可視化・分析する"
+readme = "README.md"
+authors = [
+    { name = "r-yamamoto" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "lseg-data>=2.1.1",
+    "matplotlib>=3.11.2",
+    "pandas>=2.3.3",
+    "plotly>=7.1.0",
+    "pydantic>=2.13.5",
+    "python-dotenv>=1.2.4",
+    "pytz>=2026.4",
+    "pyyaml>=6.0.3",
+    "tqdm>=4.70.1",
+    "typer>=0.27.2",
+]
+
+[project.scripts]
+marketdata = "marketdata.cli:app"
+
+[[tool.uv.index]]
+url = "https://pypi.flatt.tech/simple/"
+default = true
+
+[build-system]
+requires = ["uv_build>=0.12.18,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "nbformat>=5.11.1",
+    "ruff>=0.16.10",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

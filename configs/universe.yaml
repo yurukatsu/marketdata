@@ -1,0 +1,85 @@
+countries:
+  - ticker: ".KS100"
+    alias: "韓国"
+
+  - ticker: ".CSI300"
+    alias: "中国"
+
+  - ticker: ".HSI"
+    alias: "香港"
+
+  - ticker: ".TWII"
+    alias: "台湾"
+
+  - ticker: ".PSI"
+    alias: "フィリピン"
+
+  - ticker: ".SETI"
+    alias: "タイ"
+
+  - ticker: ".JKSE"
+    alias: "インドネシア"
+
+  - ticker: ".KLSE"
+    alias: "マレーシア"
+
+  - ticker: ".BSESN"
+    alias: "インド"
+
+  - ticker: ".XU100"
+    alias: "トルコ"
+
+  - ticker: ".FTFADGI"
+    alias: "UAE"
+
+  - ticker: ".TASI"
+    alias: "サウジアラビア"
+
+  - ticker: ".JALSH"
+    alias: "南アフリカ"
+
+  - ticker: ".MXX"
+    alias: "メキシコ"
+
+  - ticker: ".BVSP"
+    alias: "ブラジル"
+
+  - ticker: ".WIG"
+    alias: "ポーランド"
+
+sectors:
+  - ticker: ".MIEF00000NUS"
+    alias: "MSCI EM"
+
+  - ticker: ".MIEF0EN00NUS"
+    alias: "エネルギー"
+
+  - ticker: ".MIEF0MT00NUS"
+    alias: "素材"
+
+  - ticker: ".MIEF0IN00NUS"
+    alias: "資本財・サービス"
+
+  - ticker: ".MIEF0CD00NUS"
+    alias: "一般消費財・サービス"
+
+  - ticker: ".MIEF0CS00NUS"
+    alias: "生活必需品"
+
+  - ticker: ".MIEF0HC00NUS"
+    alias: "ヘルスケア"
+
+  - ticker: ".MIEF0FN00NUS"
+    alias: "金融"
+
+  - ticker: ".MIEF0IT00NUS"
+    alias: "情報技術"
+
+  - ticker: ".MIEF0TC00NUS"
+    alias: "コミュニケーション・サービス"
+
+  - ticker: ".MIEF0UT00NUS"
+    alias: "公益事業"
+
+  - ticker: ".MIEF0RS00NUS"
+    alias: "不動産"

@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Tool caches
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Secrets
+.env
+lseg-data.config.json
+
+# Data (LSEG / 社内データはリポジトリに含めない)
+data/*
+!data/.gitkeep
+
+# Generated figures, reports
+outputs/
