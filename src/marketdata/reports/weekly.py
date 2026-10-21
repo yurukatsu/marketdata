@@ -45,7 +45,7 @@ class WeeklyReportConfig(BaseModel):
 
     lookback_days: int = 7
     data_lag_days: int = 1
-    country_field: str = "TR.PriceClose"
+    country_field: str = "TR.PriceClose(Curn=USD)"
     sector_field: str = "TR.PriceClose(Curn=USD)"
     stock_field: str = "TR.PriceClose(Curn=USD)"
     yield_field: str = "MID_YLD_1"

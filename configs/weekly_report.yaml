@@ -10,7 +10,7 @@ data_lag_days: 1
 lookback_days: 7
 
 # 取得フィールド
-country_field: "TR.PriceClose"            # 各国インデックス。USD 建ては "TR.PriceClose(Curn=USD)"
+country_field: "TR.PriceClose(Curn=USD)"  # 各国インデックス。現地通貨建ては "TR.PriceClose"
 sector_field: "TR.PriceClose(Curn=USD)"   # MSCI EM セクター
 stock_field: "TR.PriceClose(Curn=USD)"    # BM 構成銘柄（ツリーマップ）。現地通貨建ては "TR.PriceClose"
 yield_field: "MID_YLD_1"                  # 国債利回り（仲値, %）
